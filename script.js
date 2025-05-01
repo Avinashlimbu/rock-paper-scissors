@@ -1,7 +1,36 @@
+function getComputerChoice (num) {
+    if (num <= 0.3) {
+        return "rock";
+    }
+    else if (num <= 0.7) {
+        return "paper";
+    }
+    else if (num <= 1) {
+        return "scissors";
+    }
+}
 
+console.log(getComputerChoice((Math.random())));
 
 
 function getHumanChoice () {
+    return choice = prompt('Input "rock", "paper", or "scissors"');
+}
+
+getHumanChoice();
+
+
+
+
+
+
+
+
+
+
+
+
+/*function getHumanChoice () {
     return choice = prompt('Select "rock", "paper", or "scissors"');
 }
 
@@ -61,7 +90,11 @@ keeps track of the score and declares the winner
 
 
 
+I think coding from now on will be so much fun
+this is because now, that i have my own setup and also because i am so excited about changing my lifestyle that 
+this is not gonna be a dream anymore 
 
+I wonder how it feels like to use other mechanical keyboard, specifically low profile onees!!
 
 
 
