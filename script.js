@@ -1,12 +1,9 @@
-let humanScore = 0
-let computerScore = 0
+
 
 
 function getHumanChoice () {
     return choice = prompt('Select "rock", "paper", or "scissors"');
 }
-
-getHumanChoice();
 
 
 function getComputerChoice (num) {
@@ -21,18 +18,61 @@ function getComputerChoice (num) {
     }
 }
 
-console.log(getComputerChoice(Math.random()));
+getComputerChoice(Math.random());
 
 
 
-function playRound (humanChoice, computerChoice) {
-    
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+function playGame () {
+    let humanScore = 0
+    let computerScore = 0
+    function playRound (humanChoice, computerChoice) {
+        humanChoice.toLowerCase();
+        if ((humanChoice === "rock" && computerChoice === "paper")) {
+            console.log("You lose! paper beats rock");
+            computerScore++;
+        }
+        else if ((humanChoice === "paper" && computerChoice === "paper")){
+            console.log("Draw, no change in scores");
+        }    
+        else if ((humanChoice === "scissors" && computerChoice === "paper")) {
+            console.log("You win! scissors beats paper");
+            humanScore++;
+        } else {
+            return "nothing happened";
+        }
+    }
 }
 
 
-
-
 /* Psuedo Code
+
+
+Step 6: Now I need to wat the endrite a logic to play the entire game
+
+Game is suppose to be 5 rounds
+playGame call playRound to play 5 rounds,
+keeps track of the score and declares the winner 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
