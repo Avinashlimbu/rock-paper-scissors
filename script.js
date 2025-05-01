@@ -1,3 +1,4 @@
+//Step 1 and 2
 function getComputerChoice (num) {
     if (num <= 0.3) {
         return "rock";
@@ -13,11 +14,55 @@ function getComputerChoice (num) {
 console.log(getComputerChoice((Math.random())));
 
 
+//Step 4
+
+let humanScore = 0;
+let computerScore = 0;
+console.log (humanScore);
+console.log (computerScore);
+
+//Step 5
+
+function playRound(humanChoice, computerChoice) {
+    let lowerCase = humanChoice.toLowerCase();
+    console.log(lowerCase);
+    if (humanChoice === "rock" && computerChoice === "scissors") {
+        console.log ("You Win! rock beats scissors");
+        humanScore++;
+    }
+    else if (humanChoice === "rock" && computerChoice === "paper"){
+        console.log ("You Lost! paper beats rock");
+        computerScore++;
+    }
+    else if (humanChoice === "rock" && computerChoice === "rock") {
+        console.log("Draw no-one wins or loses");
+    }
+}
+
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
+
+console.log(humanSelection);
+
+//Step 3 (moving step 3 make sense beause this program needs to run before the computer executes)
 function getHumanChoice () {
     return choice = prompt('Input "rock", "paper", or "scissors"');
 }
 
-getHumanChoice();
+
+
+
+let value = "Hello WORLD";
+let lowerCaseValue = value.toLowerCase();
+
+console.log(value);
+console.log(lowerCaseValue);
+
+
+
 
 
 
