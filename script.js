@@ -25,8 +25,8 @@ function getComputerChoice () {
     function playRound(humanChoice, computerChoice) {
         let humanScore = 0;
         let computerScore = 0;
-        let lowerCase = humanChoice.toLowerCase();
-        console.log(lowerCase);
+        humanChoice = humanChoice.toLowerCase();
+        console.log(humanChoice);
         if (humanChoice === "rock" && computerChoice === "scissors") {
             console.log ("You Win! rock beats scissors");
             humanScore++;
@@ -36,9 +36,48 @@ function getComputerChoice () {
         else if (humanChoice === "rock" && computerChoice === "paper"){
             console.log ("You Lost! paper beats rock");
             computerScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
         }
         else if (humanChoice === "rock" && computerChoice === "rock") {
             console.log("Draw no-one wins or loses");
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "paper" && computerChoice === "scissors") {
+            console.log ("You Lost! scissors beats paper");
+            computerScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore); 
+        }
+        else if (humanChoice === "paper" && computerChoice === "paper") {
+            console.log("Draw no-one wins or loses");
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "paper" && computerChoice === "rock") {
+            console.log ("You Win! paper beats rock");
+            humanScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "scissors" && computerChoice === "scissors") {
+            console.log("Draw no-one wins or loses");
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "scissors" && computerChoice === "paper") {
+            console.log ("You Win! scissors beats paper");
+            humanScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "scissors" && computerChoice === "rock") {
+            console.log ("You Lost! rocks beats scissors");
+            computerScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore); 
+
         }
     }    
 
