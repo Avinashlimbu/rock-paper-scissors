@@ -1,10 +1,23 @@
 
-//Step 3 (moving step 3 make sense beause this program needs to run before the computer executes)
-function getHumanChoice () {
-    return choice = prompt('Input "rock", "paper", or "scissors"');
-}
+//Selecting all buttons
+const buttons = document.querySelectorAll("#btn1, #btn2, #btn3");
 
-//Step 1 and 2
+function getHumanChoice () {
+    buttons.forEach((button, i) => {
+        button.addEventListener('click', function() {
+            if (i === 0) {
+                console.log("rock");
+            } else if (i === 1) {
+                console.log("paper");
+            } else if (i === 2) {
+                console.log("scissors");
+            }
+        })
+    })
+}
+getHumanChoice();
+
+
 function getComputerChoice () {
     let num = Math.random();
     if (num <= 0.3) {
@@ -17,11 +30,116 @@ function getComputerChoice () {
         return "scissors";
     }
 }
+getComputerChoice();
+
+
+
+
+/*
+
+//Step 1 and 2
+
+
+
+//Step 6
+
+function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
+    function playRound(humanChoice, computerChoice) { 
+        humanChoice = humanChoice.toLowerCase();
+        console.log("Human Choice = ", humanChoice);
+        console.log("Computer Choice = ", computerChoice);
+        if (humanChoice === "rock" && computerChoice === "scissors") {
+            console.log ("You Win! rock beats scissors");
+            humanScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "rock" && computerChoice === "paper"){
+            console.log ("You Lost! paper beats rock");
+            computerScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "rock" && computerChoice === "rock") {
+            console.log("Draw no-one wins or loses");
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "paper" && computerChoice === "scissors") {
+            console.log ("You Lost! scissors beats paper");
+            computerScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore); 
+        }
+        else if (humanChoice === "paper" && computerChoice === "paper") {
+            console.log("Draw no-one wins or loses");
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "paper" && computerChoice === "rock") {
+            console.log ("You Win! paper beats rock");
+            humanScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "scissors" && computerChoice === "scissors") {
+            console.log("Draw no-one wins or loses");
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "scissors" && computerChoice === "paper") {
+            console.log ("You Win! scissors beats paper");
+            humanScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore);
+        }
+        else if (humanChoice === "scissors" && computerChoice === "rock") {
+            console.log ("You Lost! rocks beats scissors");
+            computerScore++;
+            console.log ("Human Score = ", humanScore);
+            console.log ("Computer Score = ", computerScore); 
+        }
+        
+    }    
+
+
+    const humanSelection = getHumanChoice();
+    const computerSelection = getComputerChoice()
+        console.log("button");
+
+    //for (let i = 0; i < 4; i++){
+    //    playRound(getHumanChoice(), getComputerChoice());
+    //}
+
+    playRound(humanSelection, computerSelection);
+
+}
+
+playGame ();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
 //Complete Step 5 
-/*
+
 
     function playRound(humanChoice, computerChoice) {
         let humanScore = 0;
@@ -91,89 +209,6 @@ playRound(humanSelection, computerSelection);
 console.log(humanSelection);
 console.log(computerSelection);
 
-*/
-
-//Step 6
-
-function playGame() {
-    let humanScore = 0;
-    let computerScore = 0;
-    function playRound(humanChoice, computerChoice) { 
-        humanChoice = humanChoice.toLowerCase();
-        console.log("Human Choice = ", humanChoice);
-        console.log("Computer Choice = ", computerChoice);
-        if (humanChoice === "rock" && computerChoice === "scissors") {
-            console.log ("You Win! rock beats scissors");
-            humanScore++;
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore);
-        }
-        else if (humanChoice === "rock" && computerChoice === "paper"){
-            console.log ("You Lost! paper beats rock");
-            computerScore++;
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore);
-        }
-        else if (humanChoice === "rock" && computerChoice === "rock") {
-            console.log("Draw no-one wins or loses");
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore);
-        }
-        else if (humanChoice === "paper" && computerChoice === "scissors") {
-            console.log ("You Lost! scissors beats paper");
-            computerScore++;
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore); 
-        }
-        else if (humanChoice === "paper" && computerChoice === "paper") {
-            console.log("Draw no-one wins or loses");
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore);
-        }
-        else if (humanChoice === "paper" && computerChoice === "rock") {
-            console.log ("You Win! paper beats rock");
-            humanScore++;
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore);
-        }
-        else if (humanChoice === "scissors" && computerChoice === "scissors") {
-            console.log("Draw no-one wins or loses");
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore);
-        }
-        else if (humanChoice === "scissors" && computerChoice === "paper") {
-            console.log ("You Win! scissors beats paper");
-            humanScore++;
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore);
-        }
-        else if (humanChoice === "scissors" && computerChoice === "rock") {
-            console.log ("You Lost! rocks beats scissors");
-            computerScore++;
-            console.log ("Human Score = ", humanScore);
-            console.log ("Computer Score = ", computerScore); 
-        }
-        
-    }    
-
-
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
-
-for (let i = 0; i < 4; i++){
-    playRound(getHumanChoice(), getComputerChoice());
-}
-
-playRound(humanSelection, computerSelection);
-
-
-
-}
-
-
-playGame ();
-
-
 
 
 
@@ -189,7 +224,7 @@ playGame ();
 
 //Testing if my function is working as it needs to be
 
-/*
+
 function playRound(humanChoice, computerChoice) {
     let humanScore = 0;
     let computerScore = 0;
@@ -211,13 +246,13 @@ function playRound(humanChoice, computerChoice) {
 } 
 
 
-*/
 
 
 
 
 
-/*function getHumanChoice () {
+
+function getHumanChoice () {
     return choice = prompt('Select "rock", "paper", or "scissors"');
 }
 
@@ -266,7 +301,7 @@ function playGame () {
 }
 
 
-/* Psuedo Code
+ Psuedo Code
 
 
 Step 6: Now I need to wat the endrite a logic to play the entire game
@@ -332,6 +367,4 @@ if the number is more thank or equal to 0.8~1 retunr "scissors"
 What is the problem here
 1. I need to randomly show strings 
 2. three different strings: "rock", "paper" or "scissors"
-3. using Math random and if/else statement
-
-*/
+3. using Math random and if/else statement */
