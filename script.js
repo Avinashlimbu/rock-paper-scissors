@@ -47,6 +47,9 @@ function playRound(humanChoice, computerChoice) {
         computerScore++;
     }
     console.log (`Score - Human: ${humanScore} | Computer: ${computerScore}`)
+    const resultMessage = document.getElementById('resultDiv');
+    const message = (`Score - Human: ${humanScore} | Computer: ${computerScore}`);
+    resultMessage.textContent = message;
 }
 
 //Get human choice
@@ -63,10 +66,19 @@ buttons.forEach((button, i) => {
             const computerChoice = getComputerChoice();
             playRound(humanChoice, computerChoice);
             });
+   
 })
 
+
+//div for how winner's are declared
 const newDiv = document.createElement('div');
 newDiv.id = "newDiv";
 document.body.appendChild(newDiv);
+
+//div for results withing how winners are declared
+const resultDiv = document.createElement('div');
+resultDiv.id = "resultDiv";
+//resultDiv.textContent = "hello checking if this works"
+document.body.appendChild(resultDiv);
 
 
