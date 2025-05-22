@@ -1,5 +1,8 @@
 
 //Selecting all buttons
+
+let humanScore = 0;
+let computerScore = 0;
 const buttons = document.querySelectorAll("#btn1, #btn2, #btn3");
 
 function getHumanChoice () {
@@ -15,7 +18,6 @@ function getHumanChoice () {
         })
     })
 }
-getHumanChoice();
 
 
 function getComputerChoice () {
@@ -33,15 +35,20 @@ function getComputerChoice () {
 getComputerChoice();
 
 
+function playRound(humanChoice, computerChoice) { 
+        console.log("Human Choice = ", humanChoice);
+        console.log("Computer Choice = ", computerChoice);
+        
+}
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice()
+playRound(humanSelection, computerSelection)
 
 
 /*
 
-//Step 1 and 2
 
 
-
-//Step 6
 
 function playGame() {
     let humanScore = 0;
@@ -103,21 +110,27 @@ function playGame() {
         }
         
     }    
-
-
     const humanSelection = getHumanChoice();
     const computerSelection = getComputerChoice()
-        console.log("button");
-
     //for (let i = 0; i < 4; i++){
     //    playRound(getHumanChoice(), getComputerChoice());
     //}
 
     playRound(humanSelection, computerSelection);
-
 }
 
 playGame ();
+
+
+/*
+
+//Step 1 and 2
+
+
+
+//Step 6
+
+
 
 
 
