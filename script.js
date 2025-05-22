@@ -28,6 +28,8 @@ function playRound(humanChoice, computerChoice) {
     //how the winner's are declared;
     if (humanChoice === computerChoice) {
         console.log ("It's a draw");
+        const text = document.getElementById('newDiv');
+        text.textContent = ("It's a draw");
 
     } else if (
         (humanChoice === "rock" && computerChoice === "scissors") ||
@@ -35,15 +37,19 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         console.log("You Win! Human");
+        const text = document.getElementById('newDiv');
+        text.textContent = ("You Win! Human");
         humanScore++;
     } else {
         console.log("Computer Wins");
+        const text = document.getElementById('newDiv');
+        text.textContent = ("Computer Wins");
         computerScore++;
     }
     console.log (`Score - Human: ${humanScore} | Computer: ${computerScore}`)
 }
 
-
+//Get human choice
 buttons.forEach((button, i) => {
     button.addEventListener('click', function() {
         let humanChoice;
@@ -60,6 +66,7 @@ buttons.forEach((button, i) => {
 })
 
 const newDiv = document.createElement('div');
+newDiv.id = "newDiv";
 document.body.appendChild(newDiv);
 
 
