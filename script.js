@@ -3,6 +3,8 @@
 
 let humanScore = 0;
 let computerScore = 0;
+let roundCount = 0;
+const maxRounds = 5;
 const buttons = document.querySelectorAll("#btn1, #btn2, #btn3");
 
 //Get Computer choice
@@ -19,16 +21,25 @@ function getComputerChoice () {
         return "scissors";
     }
 }
-//Play the rock scissors function
 
+
+//Play the rock scissors function
+function playGame () {
 function playRound(humanChoice, computerChoice) { 
+    if (roundCount >= maxRounds) {
+        return;
+    }
+    
     console.log("Human Choice = ", humanChoice);
     console.log("Computer Choice = ", computerChoice);
+    const choiceText = document.getElementById('choiceDiv');
+    choiceText.textContent = (`Human Choice --  ${humanChoice} || Computer Choice --  ${computerChoice}`)
+            
+    const text = document.getElementById('newDiv');
 
     //how the winner's are declared;
     if (humanChoice === computerChoice) {
         console.log ("It's a draw");
-        const text = document.getElementById('newDiv');
         text.textContent = ("It's a draw");
 
     } else if (
@@ -37,24 +48,36 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "scissors" && computerChoice === "paper")
     ) {
         console.log("You Win! Human");
-        const text = document.getElementById('newDiv');
         text.textContent = ("You Win! Human");
         humanScore++;
     } else {
         console.log("Computer Wins");
-        const text = document.getElementById('newDiv');
         text.textContent = ("Computer Wins");
         computerScore++;
     }
+
+    roundCount ++;
     console.log (`Score - Human: ${humanScore} | Computer: ${computerScore}`)
     const resultMessage = document.getElementById('resultDiv');
-    const message = (`Score - Human: ${humanScore} | Computer: ${computerScore}`);
-    resultMessage.textContent = message;
-}
+    resultMessage.textContent = (`Score - Human: ${humanScore} | Computer: ${computerScore}`);
+    
+    //Declare winnter if max round is reached
+    if (roundCount === maxRounds) {
+        if (humanScore > computerChoice) {
+            alert(" Human Wins the game!");
+        } else if (computerScore > humanScore) {
+            alert("Computer Wins the game!");
+         } else {
+            alert ("it is a tie");
+         }
+        }
+    }
 
 //Get human choice
+
 buttons.forEach((button, i) => {
     button.addEventListener('click', function() {
+        if(roundCount >= maxRounds) return;
         let humanChoice;
         if (i === 0) {
                 humanChoice = "rock";
@@ -65,9 +88,16 @@ buttons.forEach((button, i) => {
             }
             const computerChoice = getComputerChoice();
             playRound(humanChoice, computerChoice);
-            });
-   
-})
+        }); 
+    });
+    
+}    
+playGame()
+
+//div for what is seleceted
+const choiceDiv = document.createElement('div');
+choiceDiv.id = "choiceDiv";
+document.body.appendChild(choiceDiv);
 
 
 //div for how winner's are declared
@@ -82,3 +112,7 @@ resultDiv.id = "resultDiv";
 document.body.appendChild(resultDiv);
 
 
+// if the score of the game comes to be 5
+//then
+// a = computer wins
+//b = human wins should be declared
